@@ -1,0 +1,39 @@
+html {
+	font-size: 13px;
+    font-family: "Montserrat", "Helvetica", "Arial";
+    text-align: center;
+    color: white;
+    background: black;
+}
+@media screen and (min-width: 800px) { html { font-size: 15px; } }
+@media screen and (min-width: 1200px) { html { font-size: 17px; } }
+@media screen and (min-width: 1600px) { html { font-size: 20px; } }
+@media screen and (min-width: 2000px) { html { font-size: 24px; } }
+h1, h2, h3 { font-weight: 500; }
+h1 {
+    font-size: 4em;
+}
+h2 {
+    font-size: 3em;
+}
+h3 {
+    font-size: 2em;
+}
+
+#words span { color: green }
+#words span.wrong { color: red }
+#words-container {
+    overflow: hidden;
+    height: 50vh;
+}
+
+input[type=text] {
+    font-size: 3em;
+    font-weight: 500;
+    width: 100%;
+    margin: none;
+    background: none;
+    color: white;
+    border: solid white;
+    border-width: 2px 0 2px 0;
+}
