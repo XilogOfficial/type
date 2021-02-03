@@ -1026,7 +1026,7 @@ $("#target").on('input', function() {
     }
     counter++;
     $("#target").val("")
-    if (counter > 6) $("#words-container").scrollTop((counter - 6) * 10)
+    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.1))
 });
 
 // timer stuff
@@ -1036,7 +1036,7 @@ timerInterval = setInterval(() => {
     if(time < 3) { timer.html(3 - time); }
     else {
         $("#target").prop("disabled", false).focus();
-        timer.html(17-time)
+        timer.html(18-time)
     }
     if (time > 17) {
         timer.html(`${round((counter/15) * 60)} WPM, ${counter} words typed<br>${errors} errors, ${round(100 - (100*errors/counter))} accuracy`);
