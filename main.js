@@ -1026,7 +1026,7 @@ $("#target").on('input', function() {
     }
     counter++;
     $("#target").val("")
-    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.1))
+    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.09))
 });
 
 // timer stuff
