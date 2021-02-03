@@ -1036,9 +1036,9 @@ timerInterval = setInterval(() => {
     if(time < 3) { timer.html(3 - time); }
     else {
         $("#target").prop("disabled", false).focus();
-        timer.html(18-time)
+        timer.html(17-time)
     }
-    if (time > 18) {
+    if (time > 17) {
         timer.html(`${round((counter/15) * 60)} WPM, ${counter} words typed<br>${errors} errors, ${round(100 - (100*errors/counter))} accuracy`);
         $("#target").prop("disabled", true)
         clearInterval(timerInterval)
