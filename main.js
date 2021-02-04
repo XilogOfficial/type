@@ -1001,7 +1001,7 @@ yourself`.toLowerCase().split("\n")
 
 words = "hello test"
 var copy = wordsList.slice(0);
-for(i=0; i<500; i++) {
+for(i=0; i<200; i++) {
     if (copy.length < 1) { copy = array.slice(0); }
     var index = Math.floor(Math.random() * copy.length);
     var item = copy[index];
@@ -1027,6 +1027,7 @@ $("#target").on('input', function() {
     counter++;
     $("#target").val("")
     if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.09))
+    if (counter > 100) alert("Stop cheating")
 });
 
 // timer stuff
