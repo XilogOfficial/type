@@ -1015,8 +1015,8 @@ counter = 0;
 errors = 0;
 
 $("#target").on('input', function() {
-    text = $("#target").val()
-    console.log(text)
+    text = $("#target").val().toLowerCase();
+    console.log(text);
     if(!text.endsWith(" ")) return console.log("no space");
     if(words[counter] == text.replace(" ", "")) {
         $("#words").html($("#words").html().replace(words[counter], `<span>${words[counter]}</span>`))
