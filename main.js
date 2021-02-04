@@ -999,7 +999,7 @@ young
 your
 yourself`.toLowerCase().split("\n")
 
-words = "hello test"
+words = ""
 var copy = wordsList.slice(0);
 for(i=0; i<200; i++) {
     if (copy.length < 1) { copy = array.slice(0); }
