@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <h3>type.xilog.xyz</h3>
+    <h3 id="header">type.xilog.xyz</h3>
 
     <div id="words-container">
         <h2 id="words"></h2>
@@ -37,6 +37,12 @@
     <input id="target" type="text" disabled>
 
     <h1 id="timer">Ready?</h1>
+    
+    <p id="time-label">15s / 30s</p>
+    <label class="switch" id="time-switch">
+        <input type="checkbox" id="time">
+        <span class="slider round"></span>
+    </label>
 
     <!-- if JS off -->
     <noscript>

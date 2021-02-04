@@ -196,7 +196,7 @@ cup
 current
 customer
 cut
-dark
+15
 data
 daughter
 day
@@ -520,8 +520,8 @@ mind
 minute
 miss
 mission
-model
-modern
+timel
+timern
 moment
 money
 month
@@ -893,7 +893,7 @@ through
 throughout
 throw
 thus
-time
+timeLeft
 to
 today
 together
@@ -1001,7 +1001,7 @@ yourself`.toLowerCase().split("\n")
 
 words = ""
 var copy = wordsList.slice(0);
-for(i=0; i<200; i++) {
+for(i=0; i<300; i++) {
     if (copy.length < 1) { copy = array.slice(0); }
     var index = Math.floor(Math.random() * copy.length);
     var item = copy[index];
@@ -1011,8 +1011,24 @@ for(i=0; i<200; i++) {
 
 $("#words").html(words)
 words = words.split(" ")
-counter = 0;
-errors = 0;
+
+counter = 0; // How many words have been typed
+errors = 0; // How many errors
+setTime = 15; // Time set by user
+
+
+// timer localstorage stuff
+// if localstorage says user's last setting is 30
+if ((localStorage.getItem('time') || '15') === '30') {
+    setTime = 30;
+    $("#time").prop('checked', true);
+}
+
+$("#time").on("click", function(e){ // if toggle is clicked, set it in localstorage
+    localStorage.setItem('time', (localStorage.getItem('time') || '15') === '15' ? '30' : '15');
+    localStorage.getItem('time') === '15' ? null : setTime = 30;
+})
+
 
 $("#target").on('input', function() {
     text = $("#target").val().toLowerCase();
@@ -1026,26 +1042,27 @@ $("#target").on('input', function() {
     }
     counter++;
     $("#target").val("")
-    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.09))
-    if (counter > 100) alert("Stop cheating")
+    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.11))
+    if ((setTime == 15 && counter > 100) || (setTime == 30 && counter > 200)) alert("Stop cheating")
 });
 
 // timer stuff
 timer = $("#timer");
-time = 0;
+timeLeft = 0;
 timerInterval = setInterval(() => {
-    if(time < 3) { timer.html(3 - time); }
+    if(timeLeft < 3) { timer.html(3 - timeLeft); }
     else {
+        $("#time-switch, #time-label").fadeOut(200)
         $("#target").prop("disabled", false).focus();
-        timer.html(18-time)
+        timer.html((setTime+3)-timeLeft)
     }
-    if (time > 17) {
-        timer.html(`${round((counter/15) * 60)} WPM, ${counter} words typed<br>${errors} errors, ${round(100 - (100*errors/counter))} accuracy`);
+    if (timeLeft > (setTime+2)) {
+        timer.html(`${round((counter/setTime) * 60)} WPM, ${counter} words typed<br>${errors} errors, ${round(100 - (100*errors/counter))} accuracy`);
         $("#target").prop("disabled", true)
         clearInterval(timerInterval)
         $("#words-container").animate({height: "0vh", opacity: 0}, 500)
     }
-    time++;
+    timeLeft++;
 }, 1000);
 
 function round(num) { return Math.round(num*10)/10 }
