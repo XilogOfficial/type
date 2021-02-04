@@ -33,7 +33,7 @@ input[type=text] {
     background: none;
     color: white;
     border: solid white;
-    border-width: 2px 0 2px 0;
+    border-width: 0.1em 0 0.1em 0;
 }
 
 
@@ -41,8 +41,8 @@ input[type=text] {
 .switch {
     position: relative;
     display: inline-block;
-    width: 68px;
-    height: 34px;
+    width: 4em;
+    height: 2em;
 }
 /* Hide default HTML checkbox */
 .switch input {
@@ -58,7 +58,7 @@ input[type=text] {
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 2px;
+    border-radius: 0.15em;
     border: 1px solid white;
     background-color: black;
     -webkit-transition: .4s;
