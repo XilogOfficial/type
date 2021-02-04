@@ -1042,7 +1042,7 @@ $("#target").on('input', function() {
     }
     counter++;
     $("#target").val("")
-    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*0.11))
+    if (counter > 6) $("#words-container").scrollTop((counter - 6) * (window.innerHeight*0.06*window.innerWidth*0.00008))
     if ((setTime == 15 && counter > 100) || (setTime == 30 && counter > 200)) alert("Stop cheating")
 });
 

@@ -16,7 +16,8 @@ h3 {
     font-size: 2em;
 }
 
-#timer, #header { margin-bottom: 0; }
+#timer { margin-bottom: 0; }
+#words { margin-top: 0; }
 
 #words span { color: green }
 #words span.wrong { color: red }
